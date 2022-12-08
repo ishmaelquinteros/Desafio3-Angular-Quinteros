@@ -1,0 +1,13 @@
+.cabecera{
+    background: rgb(0,212,255);
+background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(150,236,254,1) 29%, rgba(253,253,253,1) 53%, rgba(124,232,254,1) 79%, rgba(0,212,255,1) 100%);
+border-bottom: 5px solid white;    
+height: 50px;
+}
+.caja--principal{
+    background-image: url("../../../assets/imagenes/geometric-shapes.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+}
