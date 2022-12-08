@@ -11,3 +11,6 @@ height: 50px;
     background-size: cover;
     height: 90vh;
 }
+.error{
+    border: 2px solid red
+}

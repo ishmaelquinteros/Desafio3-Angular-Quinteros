@@ -3,27 +3,41 @@
     <main>
     <div class="caja--principal">
         <div class="row flex-column">
-        <div class="col-5"></div>
-        <div class="formulario col-5 align-self-center">
+        <form [formGroup]="formRegistar" class="col-5 align-self-center" (ngSubmit)="onSubmit()">
             <h3 class="h3 text-center text-white p-3">Registrar nuevo usuario</h3>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control --nombre" id="floatingInput" placeholder="Ingrese su nombre">
+            <div class="form-floating mb-4">
+                <input 
+                [formControl]="nombreControl" 
+                [ngClass]="{'is-valid' : nombreControl.errors === null}"
+                type="text" class="form-control --nombre" id="floatingInput" placeholder="Ingrese su nombre">
                 <label for="floatingInput">Ingrese nombre</label>
+                <small [hidden]="nombreControl.errors === null" class="text-white bg-secondary">*Campo requerido</small>
             </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control --apellido" id="floatingInput" placeholder="Ingrese su apellido">
+            <div class="form-floating mb-4">
+                <input [formControl]="apellidoControl" 
+                [ngClass]="{'is-valid' : apellidoControl.errors === null}"
+                type="text" class="form-control --apellido" id="floatingInput" placeholder="Ingrese su apellido">
                 <label for="floatingInput">Ingrese apellido</label>
+                <small [hidden]="apellidoControl.errors === null" class="text-white bg-secondary">*Campo requerido</small>
               </div>
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control --email" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Ingrese su email </label>
+            <div class="form-floating mb-4">
+                <input [formControl]="emailControl" 
+                [ngClass]="{'is-valid' : emailControl.errors === null}"
+                type="email" class="form-control --email" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Ingrese su email</label>
+                <small [hidden]="emailControl.errors === null" class="text-white bg-secondary">*Campo requerido y mail valido</small>
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input [formControl]="passControl"
+                [ngClass]="{'is-valid' : passControl.errors === null}"
+                type="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Ingrese contraseña</label>
+                <small [hidden]="passControl.errors === null" class="text-white bg-secondary">*Ingrese una palabra que contenga entre 6 y 10 caracteres</small>
               </div>              
-              <button type="button" class="btn btn-secondary mt-3 w-3">REGISTAR</button>
-        </div>
+              <button 
+              [ngClass]="{'disabled' : formRegistar.valid == false}"
+              type="submit" class="btn btn-secondary disabled mt-4 col-4">REGISTAR</button>
+          </form>
     </div>
 </div>
 </main>
